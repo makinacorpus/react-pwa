@@ -1,0 +1,26 @@
+.NewsItem__image-container {
+  overflow: hidden;
+  height: 200px;
+}
+
+.NewsItem__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.NewsItem__description {
+  height: 90px;
+  overflow: hidden;
+  position: relative;
+}
+
+.NewsItem__description::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(transparent 10%, #fff);
+}
