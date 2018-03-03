@@ -11,10 +11,10 @@ describe('getAll', () => {
   // Mock any GET request to /users
   // arguments for reply are (status, data, headers)
   mock.onAny().reply(200, {
-    articles: [
+    response: {results: [
       { title: 'a' },
       { title: 'b' }
-    ]
+    ]}
   });
 
   it('should return a list of articles', () => {

@@ -12,19 +12,19 @@ export function NewsItem(props) {
   const { article } = props;
   return (
     <Card 
-      loading={!article.title} 
-      title={article.title}
+      loading={!article.webTitle} 
+      title={article.webTitle}
       cover={
         <div className="NewsItem__image-container">
-          <img src={article.urlToImage} alt={article.title} className="NewsItem__image" />
+          <img src={article.fields && article.fields.thumbnail} alt={article.webTitle} className="NewsItem__image" />
         </div>
       }
       actions={[
-        <Button justify="end" type="primary" size="large" href={article.url} target="_blank" style={{color: 'white'}}>Lire <Icon type="right" /></Button>
+        <Button justify="end" type="primary" size="large" href={article.webUrl} target="_blank" rel="noopener" style={{color: 'white'}}>Lire <Icon type="right" /></Button>
       ]}
       bordered={false}>
         <div className="NewsItem__description">
-          {article.description}
+          {article.fields && article.fields.trailText}
         </div>
     </Card>
   );
@@ -51,9 +51,9 @@ export function NewsList(props) {
 
 NewsItem.propTypes = {
   article: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
+    webTitle: PropTypes.string,
+    fields: PropTypes.object,
     urlToImage: PropTypes.string,
-    url: PropTypes.string,
+    webUrl: PropTypes.string,
   })
 };
